@@ -18,7 +18,7 @@ image:"images/drinks/strawberry-matcha.jpg"
 {
 name:"Vietnamese Coffee",
 price:"$5.00",
-image:"images/drinks/vietnamese-coffee.jpg"
+image:"images/drinks/vietnamese-coffee.png"
 },
 
 {
