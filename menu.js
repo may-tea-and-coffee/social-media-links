@@ -4,13 +4,13 @@ const menu = {
 {
 name:"Matcha Latte",
 price:"$5.75",
-image:"images/drinks/matcha-latte.jpg"
+image:"images/matcha-latte.png"
 },
 
 {
 name:"Strawberry Matcha Latte",
 price:"$6.00",
-image:"images/drinks/strawberry-matcha.jpg"
+image:"images/strawberry-matcha.png"
 }
 ],
 
@@ -18,13 +18,13 @@ image:"images/drinks/strawberry-matcha.jpg"
 {
 name:"Vietnamese Coffee",
 price:"$5.00",
-image:"images/drinks/vietnamese-coffee.png"
+image:"images/vietnamese-coffee.png"
 },
 
 {
 name:"Latte",
 price:"$5.50",
-image:"images/drinks/latte.jpg"
+image:"images/latte.png"
 }
 ],
 
@@ -32,7 +32,7 @@ image:"images/drinks/latte.jpg"
 {
 name:"Brown Sugar Boba Milk",
 price:"$6.25",
-image:"images/drinks/brown-sugar.jpg"
+image:"images/brown-sugar.png"
 }
 ]
 
