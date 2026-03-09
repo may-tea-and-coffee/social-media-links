@@ -4,7 +4,7 @@ const menu = {
 {
 name:"Matcha Latte",
 price:"$5.75",
-image:"images/matcha-latte.png"
+image:"images/matcha-latte.jpg"
 },
 
 {
