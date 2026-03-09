@@ -52,7 +52,7 @@ body {
 .category-content-wrapper.open { grid-template-rows: 1fr; }
 .category-content { overflow: hidden; }
 
-/* ==== BỐ CỤC CARD THÔNG MINH ==== */
+/* ==== BỐ CỤC CARD ==== */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -98,7 +98,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Đẩy giá xuống đáy */
 }
 
 .card-desc {
@@ -107,26 +107,33 @@ body {
     line-height: 1.2;
 }
 
-/* Ô Giá mới: Nhỏ gọn, xếp dọc, xanh đậm */
+/* ==== BỐ CỤC GIÁ MỚI: XANH TƯƠI, THẲNG HÀNG ==== */
 .card-price-stacked {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 2px;
-    background: rgba(1, 74, 115, 0.12); /* Nền xanh đậm trong suốt */
-    padding: 5px 8px;
+    display: grid;
+    /* 3 cột: Size (nếu có), ký hiệu $, và giá tiền */
+    grid-template-columns: min-content min-content auto;
+    column-gap: 5px; 
+    row-gap: 2px;    
+    
+    background: #e6f2ff; /* Xanh nhạt sáng sủa */
+    padding: 4px 8px;
     border-radius: 8px;
-    align-self: flex-end;
+    align-self: flex-end; /* Ép về góc phải */
     margin-top: 5px;
 }
 
 .card-price-stacked span {
-    font-size: 11px; /* Font nhỏ để không bị tràn */
+    font-size: 11px; /* Nhỏ gọn */
     font-weight: 800;
-    color: #014a73; /* Chữ xanh Navy đậm */
-    line-height: 1.1;
-    white-space: nowrap;
+    color: #0066ff; /* Xanh Blue tươi */
+    line-height: 1.2;
 }
+
+/* Căn lề từng cột trong Grid Giá */
+.p-size { text-align: left; }
+.p-currency { text-align: right; }
+.p-amount { text-align: right; }
+
 
 /* Menu Giấy (Simple List) */
 .simple-list { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 15px; margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; }
