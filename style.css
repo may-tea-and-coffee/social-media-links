@@ -1,0 +1,54 @@
+body{
+    margin:0;
+    font-family:"Segoe UI",system-ui,sans-serif;
+    background:linear-gradient(135deg,#0f6cbd,#4ea0f5);
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    width:420px;
+    max-width:90%;
+    padding:30px;
+    color:white;
+}
+
+.title{
+    text-align:center;
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.category{
+    margin-top:30px;
+}
+
+.category h2{
+    font-size:20px;
+    border-bottom:1px solid rgba(255,255,255,0.3);
+    padding-bottom:5px;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    font-size:16px;
+}
+
+.price{
+    opacity:0.9;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:40px;
+    text-decoration:none;
+    background:white;
+    color:#0f6cbd;
+    padding:12px;
+    border-radius:10px;
+    font-weight:500;
+}
