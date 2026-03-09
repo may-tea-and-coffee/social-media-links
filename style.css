@@ -1,54 +1,115 @@
 body{
-    margin:0;
-    font-family:"Segoe UI",system-ui,sans-serif;
-    background:linear-gradient(135deg,#0f6cbd,#4ea0f5);
-    display:flex;
-    justify-content:center;
+
+margin:0;
+font-family:"Segoe UI",system-ui;
+background:linear-gradient(#dfeaf3,#f5fbff);
+
 }
 
-.container{
-    width:420px;
-    max-width:90%;
-    padding:30px;
-    color:white;
+.header{
+
+text-align:center;
+padding:20px;
+
 }
 
-.title{
-    text-align:center;
-    font-size:28px;
-    font-weight:600;
-    margin-bottom:30px;
+.logo{
+
+width:120px;
+
+}
+
+h1{
+
+margin:10px 0;
+font-weight:600;
+
+}
+
+.note-box{
+
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+padding:10px;
+
+}
+
+.note{
+
+background:white;
+padding:10px 15px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+font-size:14px;
+
 }
 
 .category{
-    margin-top:30px;
+
+padding:20px;
+
 }
 
 .category h2{
-    font-size:20px;
-    border-bottom:1px solid rgba(255,255,255,0.3);
-    padding-bottom:5px;
+
+border-bottom:2px solid #ddd;
+padding-bottom:5px;
+
 }
 
-.item{
-    display:flex;
-    justify-content:space-between;
-    padding:10px 0;
-    font-size:16px;
+.drink{
+
+display:flex;
+align-items:center;
+gap:15px;
+padding:10px 0;
+
+}
+
+.drink img{
+
+width:70px;
+height:70px;
+object-fit:cover;
+border-radius:10px;
+
 }
 
 .price{
-    opacity:0.9;
+
+margin-left:auto;
+font-weight:600;
+
 }
 
-.back{
-    display:block;
-    text-align:center;
-    margin-top:40px;
-    text-decoration:none;
-    background:white;
-    color:#0f6cbd;
-    padding:12px;
-    border-radius:10px;
-    font-weight:500;
+.footer{
+
+position:fixed;
+bottom:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px;
+box-shadow:0 -4px 10px rgba(0,0,0,0.1);
+
+}
+
+.footer-btn{
+
+text-decoration:none;
+color:black;
+font-weight:600;
+
+}
+
+.address{
+
+text-align:center;
+padding:70px 0 90px 0;
+font-size:14px;
+opacity:0.7;
+
 }
