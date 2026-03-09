@@ -11,6 +11,12 @@ image:"images/matcha-latte.jpg"
 name:"Strawberry Matcha Latte",
 price:"$6.00",
 image:"images/strawberry-matcha.png"
+},
+
+{
+name:"Matcha Latte Frappe",
+price: "$6.00",
+image:"images/strawberry-matcha.png"
 }
 ],
 
