@@ -1,101 +1,135 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>May Tea and Coffee</title>
+<title>May Tea & Coffee</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f6cbd,#4ea0f5);
-    font-family:"Segoe UI", "Segoe UI Variable", system-ui, sans-serif;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#9ecae6,#e3f2fd);
+font-family:"Segoe UI","Segoe UI Variable",system-ui,sans-serif;
 }
 
 .phone{
-    width:340px;
-    height:640px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(20px);
-    border-radius:40px;
-    box-shadow:0 25px 60px rgba(0,0,0,0.25);
-    padding:50px 30px;
-    color:white;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.15);
+
+width:360px;
+max-width:90%;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(20px);
+border-radius:35px;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+padding:40px 30px;
+text-align:center;
+
+}
+
+.logo-img{
+width:120px;
+margin-bottom:10px;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:600;
-    letter-spacing:0.5px;
-    margin-bottom:10px;
+font-size:26px;
+font-weight:600;
 }
 
 .subtitle{
-    font-size:14px;
-    opacity:0.8;
-    margin-bottom:45px;
+font-size:14px;
+opacity:0.75;
+margin-bottom:30px;
 }
 
 .links a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    background:rgba(255,255,255,0.15);
-    text-decoration:none;
-    color:white;
-    padding:14px;
-    margin:16px 0;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:500;
-    transition:all .25s ease;
+
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+background:white;
+text-decoration:none;
+color:#0f6cbd;
+padding:14px;
+margin:14px 0;
+border-radius:14px;
+font-size:16px;
+font-weight:500;
+transition:all .25s ease;
+
 }
 
 .links a:hover{
-    background:white;
-    color:#0f6cbd;
-    transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+
 }
 
 .links i{
-    font-size:18px;
+font-size:18px;
 }
 
 .footer{
-    position:absolute;
-    bottom:30px;
-    left:0;
-    right:0;
-    text-align:center;
-    font-size:12px;
-    opacity:0.7;
+
+margin-top:25px;
+font-size:13px;
+opacity:0.7;
+
+}
+
+.contact{
+
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+font-size:18px;
+
+}
+
+.contact a{
+
+color:#0f6cbd;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="phone">
 
-<div class="logo">May Tea and Coffee</div>
-<div class="subtitle">Follow us for drinks & updates</div>
+<!-- LOGO (replace logo.png with your file) -->
+<img src="images/logo.png" class="logo-img">
+
+<div class="logo">May Tea & Coffee</div>
+
+<div class="subtitle">
+Tea • Coffee • Smoothies
+</div>
 
 <div class="links">
 
-<a href="https://www.facebook.com/profile.php?id=61587109587784&mibextid=wwXIfr&rdid=9fcWA5SAmX7YHjb0#">
+<a href="menu.html">
+<i class="fa-solid fa-utensils"></i>
+View Menu
+</a>
+
+<a href="https://www.facebook.com/profile.php?id=61587109587784">
 <i class="fab fa-facebook"></i>
 Facebook
 </a>
@@ -105,20 +139,40 @@ Facebook
 Instagram
 </a>
 
-<a href="https://www.tiktok.com/@may.tea.coffee0?_r=1&_t=ZS-94S4VqVJB57">
+<a href="https://www.tiktok.com/@may.tea.coffee0">
 <i class="fab fa-tiktok"></i>
 TikTok
 </a>
 
-<a href="menu.html">Menu</a>
+<a href="https://www.google.com/maps/search/?api=1&query=1101+N+Hermitage+Rd+Hermitage+PA+16148">
+<i class="fa-solid fa-location-dot"></i>
+Get Directions
+</a>
+
+</div>
+
+<div class="contact">
+
+<a href="tel:1111111111">
+<i class="fa-solid fa-phone"></i>
+</a>
+
+<a href="mailto:mayteacoffee98@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
 
 </div>
 
 <div class="footer">
-May Tea & Coffee
+
+📍 1101 N Hermitage Rd  
+Hermitage, PA 16148
+
 </div>
 
 </div>
 
 </body>
+
 </html>
+```
