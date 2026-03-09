@@ -3,45 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>May Tea & Coffee Menu</title>
+    <title>Menu | May Tea & Coffee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="app-container">
+        
+        <header class="header">
+            <img src="images/logo.png" alt="May Tea & Coffee" class="logo">
+            <h1>May Tea & Coffee</h1>
+            <p class="tagline">Premium Quality</p>
+        </header>
 
-    <header class="header">
-        <img src="images/logo.png" class="logo">
-        <h1>May Tea & Coffee</h1>
-    </header>
+        <main id="menu-container"></main>
 
-    <div id="menu-container"></div>
+        <h3 class="options-title">Customize Your Drink</h3>
+        <div class="note-box">
+            <div class="note-card">
+                <div class="note-icon"><i class="fa-solid fa-snowflake"></i></div>
+                <div class="note-text">
+                    <strong>Ice Level</strong>
+                    <span>Regular • Less • No Ice</span>
+                </div>
+            </div>
+            <div class="note-card">
+                <div class="note-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                <div class="note-text">
+                    <strong>Sugar Level</strong>
+                    <span>0% • 30% • 50% • 70% • 100%</span>
+                </div>
+            </div>
+            <div class="note-card">
+                <div class="note-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div class="note-text">
+                    <strong>Note</strong>
+                    <span>Oat Milk +$0.75</span>
+                </div>
+            </div>
+        </div>
 
-    <div class="note-box">
-        <div class="note">
-            <strong>Ice Level</strong> Regular / Less / No Ice
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61587109587784"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mayteacoffee.pa"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@may.tea.coffee0"><i class="fab fa-tiktok"></i></a>
         </div>
-        <div class="note">
-            <strong>Sugar Level</strong> 0% • 30% • 50% • 70% • 100%
-        </div>
-        <div class="note">
-            <strong>Note</strong> Oat Milk +$0.75
-        </div>
+
+        <div class="bottom-spacer"></div>
     </div>
 
-    <div class="footer-social">
-        <a href="https://www.facebook.com/profile.php?id=61587109587784" class="social-icon"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/mayteacoffee.pa" class="social-icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@may.tea.coffee0" class="social-icon"><i class="fab fa-tiktok"></i></a>
-    </div>
-
-    <footer class="footer">
-        <a href="tel:1111111111" class="footer-btn">
+    <nav class="floating-bar">
+        <a href="tel:1111111111" class="action-btn btn-call">
             <i class="fa-solid fa-phone"></i> CALL
         </a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=1101+N+Hermitage+Rd+Hermitage+PA+16148" class="footer-btn">
+        <div class="divider"></div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1101+N+Hermitage+Rd+Hermitage+PA+16148" class="action-btn btn-dir">
             <i class="fa-solid fa-location-arrow"></i> DIRECTION
         </a>
-    </footer>
+    </nav>
 
     <script src="menu.js"></script>
 </body>
