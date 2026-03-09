@@ -60,22 +60,43 @@ const menu = {
     ]
 };
 
-// Hàm xử lý giá xếp dọc, xóa dấu ":" thừa
+// Hàm xử lý giá: Bỏ dấu ":", tách Size, $ và Giá thành 3 cột để tự động thẳng hàng
 function formatCardPrice(priceString) {
+    let html = '<div class="card-price-stacked">';
+
+    const parseChunk = (chunk) => {
+        let size = "";
+        let amount = "";
+        let clean = chunk.replace(':', '').trim(); 
+        
+        // Dùng Regex tìm phần Size (chữ cái) và phần Giá (số)
+        let match = clean.match(/([A-Za-z]*)\s*\$?(\d+\.\d+)/);
+        if (match) {
+            size = match[1].trim(); 
+            amount = match[2].trim(); 
+        } else {
+            amount = clean.replace('$', '').trim();
+        }
+        
+        return `
+            <span class="p-size">${size}</span>
+            <span class="p-currency">$</span>
+            <span class="p-amount">${amount}</span>
+        `;
+    }
+
     if (priceString.includes('|')) {
         const sizes = priceString.split('|');
-        let html = '<div class="card-price-stacked">';
         sizes.forEach(size => {
-            const cleanSize = size.trim().replace(':', '');
-            html += `<span>${cleanSize}</span>`;
+            html += parseChunk(size);
         });
-        html += '</div>';
-        return html;
     } 
     else {
-        const cleanSize = priceString.replace(':', '');
-        return `<div class="card-price-stacked"><span>${cleanSize}</span></div>`;
+        html += parseChunk(priceString);
     }
+
+    html += '</div>';
+    return html;
 }
 
 const container = document.getElementById("menu-container");
@@ -127,12 +148,11 @@ for (const category in menu) {
     if (listItems.length > 0) {
         let listHTML = '<div class="simple-list">';
         listItems.forEach(drink => {
-            // Đối với Menu giấy dạng list, ta giữ nguyên chuỗi giá
             listHTML += `
                 <div class="simple-item">
                     <span class="simple-name">${drink.name}</span>
                     <span class="simple-dots"></span>
-                    <span class="simple-price">${drink.price.replace(':', '')}</span>
+                    <span class="simple-price">${drink.price.replace(/:/g, '')}</span>
                 </div>
             `;
         });
