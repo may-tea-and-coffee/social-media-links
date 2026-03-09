@@ -35,7 +35,9 @@ const menu = {
         { name: "Mango Green Tea", price: "$5.75" },
         { name: "Kumquat Green Tea", price: "$5.75" },
         { name: "Pink Guava Green Tea", price: "$5.75" },
-        { name: "Lychee Rose Tea", price: "$5.75" }
+        { name: "Lychee Rose Tea", price: "$5.75" },
+        { name: "Lemon Green Tea", price: "$5.75" },
+        { name: "Lemon Thai Tea", price: "$5.75"} 
     ],
     "Ice Blended": [
         { name: "Berry Mix Smoothie", price: "M: $6.00 | L: $6.75" },
@@ -56,6 +58,8 @@ const menu = {
         { name: "Oolong Cold Brew", price: "M: $4.25 | L: $5.00" },
         { name: "Earl Grey Cold Brew", price: "M: $4.25 | L: $5.00" },
         { name: "Chrysanthemum Hot", price: "M: $4.25" },
+        { name: "Oolong Tea", price: "M: $4.25" },
+        { name: "Jasmine", price: "M: $4.25" },
         { name: "Ginger Hot Tea", price: "M: $4.25" }
     ]
 };
