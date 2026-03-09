@@ -1,4 +1,3 @@
-// Biến menu giữ nguyên (danh sách món không đổi)
 const menu = {
     "Matcha Series": [
         { name: "Matcha Latte Frappe", price: "$6.00" },
@@ -62,16 +61,14 @@ const menu = {
 };
 
 const container = document.getElementById("menu-container");
-let isFirst = true; // Biến cờ để tự động mở danh mục đầu tiên
+let isFirst = true;
 
 for (const category in menu) {
     const items = menu[category];
     
-    // Tạo cấu trúc Accordion
     const section = document.createElement("div");
     section.className = "category-section";
 
-    // 1. Header (Nút bấm để xổ xuống)
     const header = document.createElement("div");
     header.className = "category-header";
     header.innerHTML = `
@@ -79,32 +76,26 @@ for (const category in menu) {
         <i class="fa-solid fa-chevron-down toggle-icon" style="${isFirst ? 'transform: rotate(180deg)' : ''}"></i>
     `;
 
-    // 2. Content Wrapper (Phần xổ ra)
     const wrapper = document.createElement("div");
     wrapper.className = `category-content-wrapper ${isFirst ? 'open' : ''}`;
     
     const content = document.createElement("div");
     content.className = "category-content";
 
-    // Lọc: 6 món đầu dạng hình, còn lại dạng chữ
+    // Lọc: 6 món đầu là Card (hình vuông), từ món 7 trở đi là List (chữ kẻ ngang)
     const cardItems = items.slice(0, 6);
     const listItems = items.slice(6);
 
-    // --- RENDER DẠNG CARD (ẢNH MẪU) ---
+    // BỐ CỤC CARD: Ảnh to, Tên to, Giá nhỏ nằm trong hộp
     if (cardItems.length > 0) {
         let gridHTML = '<div class="card-grid">';
         cardItems.forEach(drink => {
             const imgPath = drink.image ? drink.image : "images/brown-sugar.png";
             gridHTML += `
                 <div class="drink-card">
-                    <div class="card-top">
-                        <img src="${imgPath}" alt="${drink.name}">
-                        <div class="card-info">
-                            <div class="card-desc">Delicious selected blend</div>
-                            <div class="card-price">${drink.price}</div>
-                        </div>
-                    </div>
+                    <img src="${imgPath}" alt="${drink.name}">
                     <div class="card-name">${drink.name}</div>
+                    <div class="card-price">${drink.price}</div>
                 </div>
             `;
         });
@@ -112,7 +103,7 @@ for (const category in menu) {
         content.innerHTML += gridHTML;
     }
 
-    // --- RENDER DẠNG MENU GIẤY (MÓN THỨ 7 TRỞ ĐI) ---
+    // BỐ CỤC LIST (MENU GIẤY)
     if (listItems.length > 0) {
         let listHTML = '<div class="simple-list">';
         listItems.forEach(drink => {
@@ -133,18 +124,11 @@ for (const category in menu) {
     section.appendChild(wrapper);
     container.appendChild(section);
 
-    // --- LOGIC CLICK XỔ XUỐNG ---
+    // LOGIC ĐÓNG/MỞ ĐỘC LẬP TỪNG MENU
     header.addEventListener('click', () => {
+        wrapper.classList.toggle('open');
         const isOpen = wrapper.classList.contains('open');
-        
-        // (Tùy chọn) Đóng tất cả các mục khác trước khi mở mục mới
-        document.querySelectorAll('.category-content-wrapper').forEach(w => w.classList.remove('open'));
-        document.querySelectorAll('.toggle-icon').forEach(i => i.style.transform = 'rotate(0deg)');
-        
-        if (!isOpen) {
-            wrapper.classList.add('open');
-            header.querySelector('.toggle-icon').style.transform = 'rotate(180deg)';
-        }
+        header.querySelector('.toggle-icon').style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
     });
 
     isFirst = false;
