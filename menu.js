@@ -1,54 +1,76 @@
-const menuData = {
+const menu = {
+
+"Matcha Series":[
+{
+name:"Matcha Latte",
+price:"$5.75",
+image:"images/drinks/matcha-latte.jpg"
+},
+
+{
+name:"Strawberry Matcha Latte",
+price:"$6.00",
+image:"images/drinks/strawberry-matcha.jpg"
+}
+],
+
+"Coffee Series":[
+{
+name:"Vietnamese Coffee",
+price:"$5.00",
+image:"images/drinks/vietnamese-coffee.jpg"
+},
+
+{
+name:"Latte",
+price:"$5.50",
+image:"images/drinks/latte.jpg"
+}
+],
 
 "Milk Tea":[
-{name:"Classic Milk Tea", price:"$5"},
-{name:"Brown Sugar Milk Tea", price:"$5.5"},
-{name:"Taro Milk Tea", price:"$5.5"}
-],
-
-"Fruit Tea":[
-{name:"Peach Tea", price:"$5"},
-{name:"Mango Tea", price:"$5"},
-{name:"Passion Fruit Tea", price:"$5"}
-],
-
-"Coffee":[
-{name:"Vietnamese Coffee", price:"$5"},
-{name:"Iced Latte", price:"$5.5"}
-],
-
-"Special":[
-{name:"Durian Smoothie", price:"$6"},
-{name:"Avocado Smoothie", price:"$6"}
+{
+name:"Brown Sugar Boba Milk",
+price:"$6.25",
+image:"images/drinks/brown-sugar.jpg"
+}
 ]
 
 }
 
-const menuContainer=document.getElementById("menu")
 
-for(const category in menuData){
+
+const container=document.getElementById("menu-container")
+
+for(const category in menu){
 
 const section=document.createElement("div")
 section.className="category"
 
 const title=document.createElement("h2")
 title.textContent=category
+
 section.appendChild(title)
 
-menuData[category].forEach(item=>{
+menu[category].forEach(drink=>{
 
-const div=document.createElement("div")
-div.className="item"
+const item=document.createElement("div")
+item.className="drink"
 
-div.innerHTML=`
-<span>${item.name}</span>
-<span class="price">${item.price}</span>
+item.innerHTML=`
+
+<img src="${drink.image}">
+
+<div>${drink.name}</div>
+
+<div class="price">${drink.price}</div>
+
 `
 
-section.appendChild(div)
+section.appendChild(item)
 
 })
 
-menuContainer.appendChild(section)
+container.appendChild(section)
 
 }
