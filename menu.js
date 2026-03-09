@@ -81,15 +81,18 @@ for (const category in menu) {
         const item = document.createElement("div");
         item.className = "menu-item";
 
+        // Logic thông minh: Nếu sau này món nào có 'image' riêng thì lấy, không có thì dùng hình mặc định
+        const imgPath = drink.image ? drink.image : "images/brown-sugar.png";
+
+        // Cấu trúc HTML tinh gọn, để CSS Modern App lo toàn bộ phần hiển thị
         item.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <img src="images/brown-sugar.png" style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #eee;">
-                <div class="item-info">
-                    <span class="name">${drink.name}</span>
-                </div>
+            <img src="${imgPath}" alt="${drink.name}">
+            <div class="item-info">
+                <span class="name">${drink.name}</span>
             </div>
             <div class="item-price">${drink.price}</div>
         `;
+        
         section.appendChild(item);
     });
 
