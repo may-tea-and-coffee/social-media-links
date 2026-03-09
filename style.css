@@ -52,7 +52,7 @@ body {
 .category-content-wrapper.open { grid-template-rows: 1fr; }
 .category-content { overflow: hidden; }
 
-/* ==== BỐ CỤC CARD MỚI: TÊN TRÊN, GIÁ GÓC DƯỚI PHẢI ==== */
+/* ==== BỐ CỤC CARD THÔNG MINH ==== */
 .card-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -98,7 +98,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Đẩy giá xuống góc dưới */
+    justify-content: space-between;
 }
 
 .card-desc {
@@ -107,15 +107,25 @@ body {
     line-height: 1.2;
 }
 
-.card-price {
-    font-size: 13px; /* Kích thước nhỏ gọn */
-    font-weight: 800;
-    color: var(--primary);
-    background: rgba(2, 132, 199, 0.1);
-    padding: 4px 8px;
+/* Ô Giá mới: Nhỏ gọn, xếp dọc, xanh đậm */
+.card-price-stacked {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    background: rgba(1, 74, 115, 0.12); /* Nền xanh đậm trong suốt */
+    padding: 5px 8px;
     border-radius: 8px;
-    align-self: flex-end; /* Nằm ép sát lề phải */
+    align-self: flex-end;
     margin-top: 5px;
+}
+
+.card-price-stacked span {
+    font-size: 11px; /* Font nhỏ để không bị tràn */
+    font-weight: 800;
+    color: #014a73; /* Chữ xanh Navy đậm */
+    line-height: 1.1;
+    white-space: nowrap;
 }
 
 /* Menu Giấy (Simple List) */
