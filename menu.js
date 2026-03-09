@@ -29,7 +29,7 @@ const menu = {
     "Fruit Tea": [
         { name: "Fresh Fruit Tea", price: "$6.25" },
         { name: "Very Berry Tea", price: "$6.25" },
-        { name: "Peach Orange Lemongrass", price: "$6.25" },
+        { name: "Peach Lemongrass", price: "$6.25" },
         { name: "Peach Tea", price: "$5.75" },
         { name: "Strawberry Green Tea", price: "$5.75" },
         { name: "Mango Green Tea", price: "$5.75" },
@@ -82,20 +82,24 @@ for (const category in menu) {
     const content = document.createElement("div");
     content.className = "category-content";
 
-    // Lọc: 6 món đầu là Card (hình vuông), từ món 7 trở đi là List (chữ kẻ ngang)
     const cardItems = items.slice(0, 6);
     const listItems = items.slice(6);
 
-    // BỐ CỤC CARD: Ảnh to, Tên to, Giá nhỏ nằm trong hộp
+    // BỐ CỤC MỚI: TÊN TRÊN - HÌNH TRÁI - GIÁ GÓC PHẢI
     if (cardItems.length > 0) {
         let gridHTML = '<div class="card-grid">';
         cardItems.forEach(drink => {
             const imgPath = drink.image ? drink.image : "images/brown-sugar.png";
             gridHTML += `
                 <div class="drink-card">
-                    <img src="${imgPath}" alt="${drink.name}">
                     <div class="card-name">${drink.name}</div>
-                    <div class="card-price">${drink.price}</div>
+                    <div class="card-body">
+                        <img src="${imgPath}" alt="${drink.name}">
+                        <div class="card-info">
+                            <div class="card-desc">Premium quality blend</div>
+                            <div class="card-price">${drink.price}</div>
+                        </div>
+                    </div>
                 </div>
             `;
         });
@@ -103,7 +107,6 @@ for (const category in menu) {
         content.innerHTML += gridHTML;
     }
 
-    // BỐ CỤC LIST (MENU GIẤY)
     if (listItems.length > 0) {
         let listHTML = '<div class="simple-list">';
         listItems.forEach(drink => {
@@ -124,7 +127,7 @@ for (const category in menu) {
     section.appendChild(wrapper);
     container.appendChild(section);
 
-    // LOGIC ĐÓNG/MỞ ĐỘC LẬP TỪNG MENU
+    // CLICK ĐỘC LẬP TỪNG MENU
     header.addEventListener('click', () => {
         wrapper.classList.toggle('open');
         const isOpen = wrapper.classList.contains('open');
