@@ -131,7 +131,7 @@ for (const category in menu) {
     if (cardItems.length > 0) {
         let gridHTML = '<div class="card-grid">';
         cardItems.forEach(drink => {
-            const imgPath = drink.image ? drink.image : "images/default_image.png";
+            const imgPath = drink.image ? drink.image : "images/logo.png";
             gridHTML += `
                 <div class="drink-card">
                     <div class="card-name">${drink.name}</div>
