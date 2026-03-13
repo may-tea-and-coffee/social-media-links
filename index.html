@@ -3,173 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>May Tea & Coffee - Links</title>
+    <title>Mây Tea & Coffee | Your Cloud Escape</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Gradient Cloud Blue chuyên nghiệp */
-            background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
-            font-family: "Segoe UI", system-ui, sans-serif;
-            color: #455a64;
+        /* ==== CSS RESET & BIẾN TOÀN CỤC (3 CHẾ ĐỘ: DAY, SUNSET, NIGHT) ==== */
+        :root {
+            --primary: #0284c7; 
+            --primary-glow: rgba(2, 132, 199, 0.3);
+            
+            /* MẶC ĐỊNH: TRỜI SÁNG (DAY MODE) */
+            --bg-main: #f8fafc;
+            --text-main: #0f172a;
+            --text-gray: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --sky-top: #38bdf8; /* Xanh da trời tươi */
+            --sky-bottom: #e0f2fe; /* Xanh sữa */
+            --sun-moon-bg: #fde047; /* Mặt trời vàng */
+            --sun-moon-glow: 0 0 60px rgba(253, 224, 71, 0.8);
+            --cloud-color: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .phone {
-            width: 380px;
-            max-width: 90%;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            /* Loại bỏ hoàn toàn bo góc theo ý bạn */
-            border-radius: 0; 
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-            padding: 40px 25px;
-            text-align: center;
+        /* CHẾ ĐỘ HOÀNG HÔN (SUNSET MODE) */
+        body.sunset-mode {
+            --sky-top: #ff7e5f; /* Cam hồng hoàng hôn */
+            --sky-bottom: #feb47b;
+            --sun-moon-bg: #ffedd5; /* Mặt trời lặn ngả trắng */
+            --sun-moon-glow: 0 0 80px rgba(255, 237, 213, 0.9);
+            --cloud-color: rgba(255, 245, 245, 0.9); /* Mây ám hồng */
+            --primary: #be123c; /* Đổi màu nhấn sang đỏ mận cho hợp hoàng hôn */
+            --primary-glow: rgba(190, 18, 60, 0.3);
         }
 
-        /* BANNER KHUYẾN MÃI - GÓC VUÔNG */
-        #promo-banner {
-            display: none; 
-            background: #1e88e5;
-            color: white;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: 2px dashed rgba(255,255,255,0.5);
-            animation: fadeInDown 0.5s ease-out;
+        /* CHẾ ĐỘ ĐÊM (NIGHT MODE) */
+        body.dark-mode {
+            --bg-main: #0f172a;
+            --text-main: #f8fafc;
+            --text-gray: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.85);
+            --sky-top: #020617; /* Đêm tối */
+            --sky-bottom: #1e293b;
+            --sun-moon-bg: #f8fafc; /* Mặt trăng */
+            --sun-moon-glow: 0 0 40px rgba(255, 255, 255, 0.4);
+            --cloud-color: #334155; /* Mây xám đêm */
+            --nav-bg: rgba(15, 23, 42, 0.95);
+            --primary: #38bdf8; /* Đổi màu nhấn sáng hơn để nổi trên nền đen */
+            --shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            scroll-behavior: smooth;
+            transition: background 1s ease, color 0.5s ease;
+            overflow-x: hidden;
         }
 
-        .promo-title { font-weight: 800; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; }
-        .promo-date { font-size: 11px; opacity: 0.9; margin-top: 5px; font-weight: 300; }
+        a { text-decoration: none; color: inherit; }
 
-        .logo-img { width: 100px; margin-bottom: 10px; }
-        .logo { font-size: 26px; font-weight: 700; letter-spacing: 1.5px; color: #1e88e5; text-transform: uppercase; }
-        .subtitle { font-size: 11px; letter-spacing: 3px; opacity: 0.6; margin-bottom: 30px; color: #546e7a; }
-
-        .links { display: flex; flex-direction: column; gap: 10px; }
-        .links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #ffffff;
-            text-decoration: none;
-            color: #1565c0;
-            padding: 15px;
-            border-radius: 0; /* Góc vuông */
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+        /* ==== 1. HEADER ==== */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 40px; box-sizing: border-box;
+            background: var(--nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000; transition: all 0.5s ease;
         }
 
-        .links a:hover {
-            background: #1e88e5;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(30, 136, 229, 0.2);
+        .logo-text { font-size: 28px; font-weight: 800; color: var(--primary); letter-spacing: 1px; transition: color 0.5s ease;}
+        
+        .nav-menu { display: flex; gap: 30px; }
+        .nav-menu a { font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--primary); }
+
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .btn {
+            background: var(--primary); color: white;
+            padding: 10px 20px; border-radius: 50px;
+            font-weight: 700; transition: 0.3s; cursor: pointer; border: none; font-size: 14px;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px var(--primary-glow); filter: brightness(1.1); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: white; }
+        
+        .dark-toggle { font-size: 22px; color: var(--text-main); cursor: pointer; margin-right: 15px; transition: 0.3s; }
+        .dark-toggle:hover { transform: scale(1.1); color: var(--primary); }
+
+        /* ==== 2. HERO SECTION (BẦU TRỜI & MÂY DÀY ĐẶC) ==== */
+        .hero {
+            position: relative; height: 100vh;
+            background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 20px; overflow: hidden;
+            transition: background 1s ease;
         }
 
-        /* DÒNG CHỮ CHÀO MỜI */
-        .welcome-note {
-            margin-top: 25px;
-            font-size: 13px;
-            font-style: italic;
-            color: #1e88e5;
-            line-height: 1.6;
-            padding: 0 10px;
+        /* Mặt trời / Mặt trăng đã được dời ra góc */
+        .sun-moon {
+            position: absolute; top: 12%; right: 10%;
+            width: 80px; height: 80px; border-radius: 50%;
+            background: var(--sun-moon-bg); box-shadow: var(--sun-moon-glow);
+            transition: all 1s ease; z-index: 1;
         }
+        body.dark-mode .sun-moon { box-shadow: inset -15px -15px 0 0 var(--bg-main), 0 0 30px rgba(255,255,255,0.2); background: transparent; }
 
-        .contact { margin-top: 20px; display: flex; justify-content: center; gap: 30px; }
-        .contact a { color: #1e88e5; font-size: 22px; transition: 0.3s; }
-        .contact a:hover { transform: scale(1.2); color: #0d47a1; }
+        /* Hệ thống 5 đám mây bay */
+        .moving-clouds { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+        .cloud-anim { position: absolute; background: var(--cloud-color); border-radius: 50px; filter: blur(3px); transition: background 1s ease; }
+        .cloud-anim::before, .cloud-anim::after { content: ''; position: absolute; background: var(--cloud-color); border-radius: 50%; transition: background 1s ease; }
+        
+        .c1 { width: 200px; height: 60px; top: 15%; opacity: 0.8; animation: drift 45s linear infinite; }
+        .c1::before { width: 80px; height: 80px; top: -40px; left: 30px; } .c1::after { width: 100px; height: 100px; top: -50px; right: 30px; }
+        
+        .c2 { width: 150px; height: 50px; top: 35%; opacity: 0.5; transform: scale(0.8); animation: drift 35s linear infinite reverse; }
+        .c2::before { width: 60px; height: 60px; top: -30px; left: 20px; } .c2::after { width: 80px; height: 80px; top: -40px; right: 20px; }
+        
+        .c3 { width: 250px; height: 70px; top: 60%; opacity: 0.7; transform: scale(1.2); animation: drift 60s linear infinite; }
+        .c3::before { width: 100px; height: 100px; top: -50px; left: 40px; } .c3::after { width: 120px; height: 120px; top: -60px; right: 40px; }
+        
+        .c4 { width: 120px; height: 40px; top: 25%; opacity: 0.4; transform: scale(0.6); animation: drift 25s linear infinite reverse; }
+        .c4::before { width: 50px; height: 50px; top: -20px; left: 15px; } .c4::after { width: 60px; height: 60px; top: -30px; right: 15px; }
+        
+        .c5 { width: 180px; height: 55px; top: 75%; opacity: 0.6; transform: scale(0.9); animation: drift 50s linear infinite; }
+        .c5::before { width: 70px; height: 70px; top: -35px; left: 25px; } .c5::after { width: 90px; height: 90px; top: -45px; right: 25px; }
 
-        .footer {
-            margin-top: 25px;
-            font-size: 11px;
-            color: #78909c;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 15px;
+        @keyframes drift { from { left: -30%; } to { left: 110%; } }
+
+        /* Nội dung chính giữa Hero */
+        .hero-content { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center;}
+        
+        /* Logo to, không viền, đổ bóng xịn */
+        .hero-logo { width: 220px; margin-bottom: 20px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)); animation: float 6s ease-in-out infinite; }
+        
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 65px; margin: 0 0 10px; color: var(--primary); text-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: color 1s ease;}
+        
+        /* Giờ mở cửa: To, tinh tế, không khung */
+        .store-hours {
+            margin-top: 30px; font-size: 18px; font-weight: 600;
+            color: var(--text-main); text-shadow: 0 2px 5px rgba(255,255,255,0.8);
             letter-spacing: 0.5px;
+        }
+        body.dark-mode .store-hours { text-shadow: 0 2px 5px rgba(0,0,0,0.8); color: #e2e8f0; }
+
+        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
+
+        /* ==== 3. THIẾT KẾ PREMIUM VOUCHER (TRIAL OPENING) ==== */
+        .premium-offer-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: -60px auto 0; /* Kéo nhẹ lên đè vào Hero */
+            position: relative; z-index: 20;
+        }
+
+        .voucher-card {
+            display: flex;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px; overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s;
+        }
+        .voucher-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+        /* Phần trái của vé */
+        .voucher-left { padding: 50px; flex: 1; text-align: left; position: relative; }
+        .voucher-left h2 { font-size: 36px; margin: 0 0 10px; color: var(--text-main); }
+        .voucher-left p { font-size: 16px; color: var(--text-gray); margin-bottom: 25px; line-height: 1.6;}
+        
+        /* Đường cắt đứt khúc giữa vé */
+        .voucher-divider {
+            width: 2px; background: repeating-linear-gradient(to bottom, var(--text-gray) 0, var(--text-gray) 8px, transparent 8px, transparent 16px);
+            opacity: 0.3; margin: 20px 0; position: relative;
+        }
+
+        /* Phần phải của vé (Nổi bật) */
+        .voucher-right {
+            background: linear-gradient(135deg, var(--primary), #60a5fa);
+            padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; min-width: 220px; text-align: center;
+        }
+        .voucher-right .percent { font-size: 55px; font-weight: 800; line-height: 1; margin-bottom: 10px; font-family: 'Outfit', sans-serif;}
+        .voucher-right .date { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px;}
+
+        /* ==== 4. SOCIAL & RATE US (10% OFF) ==== */
+        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10;}
+        .social-rate-box {
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            border-radius: 30px; padding: 50px 30px; text-align: center;
+            box-shadow: var(--shadow); border: 1px solid var(--glass-border);
+        }
+        .social-rate-box h2 { font-size: 36px; color: var(--primary); margin-top: 0;}
+        .social-rate-box p { font-size: 18px; margin-bottom: 20px; color: var(--text-main);}
+        .stars { color: #FDB813; font-size: 26px; margin: 15px 0; letter-spacing: 8px; filter: drop-shadow(0 2px 4px rgba(253, 184, 19, 0.4));}
+        
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 25px; }
+        .social-links a { 
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; color: white; transition: 0.3s;
+            background: var(--primary); box-shadow: 0 10px 20px var(--primary-glow);
+        }
+        .social-links a:hover { transform: scale(1.15) translateY(-5px); background: var(--text-main); box-shadow: 0 15px 25px rgba(0,0,0,0.2);}
+
+        /* ==== 5. CATEGORIES ==== */
+        .section-title { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 10px; color: var(--text-main);}
+        .section-subtitle { text-align: center; color: var(--text-gray); margin-bottom: 50px; }
+
+        .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .category-card {
+            background: var(--card-bg); border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow); text-align: center; padding-bottom: 20px; transition: 0.3s;
+            border: 1px solid var(--glass-border);
+        }
+        .category-card:hover { transform: translateY(-10px); }
+        .category-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 15px; }
+        .category-card h3 { font-size: 20px; margin: 0; color: var(--text-main);}
+
+        /* ==== 6. FOOTER ==== */
+        .footer { background: #0f172a; color: white; padding: 70px 20px 20px; margin-top: 50px; border-radius: 40px 40px 0 0; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 50px; }
+        .footer-logo { font-size: 28px; font-weight: 800; margin-bottom: 15px; color: var(--primary); font-family: 'Dancing Script', cursive;}
+        .footer-text { color: #94a3b8; line-height: 1.8; font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;}
+        .footer-text i { color: var(--primary); font-size: 16px; width: 20px; text-align: center;}
+        
+        .footer-links h4 { font-size: 20px; margin-bottom: 20px; color: white; }
+        .footer-links a { color: #94a3b8; display: block; margin-bottom: 12px; font-size: 15px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--primary); transform: translateX(5px); }
+        
+        .newsletter-form { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .newsletter-form input { padding: 14px 20px; border-radius: 10px; border: 1px solid #334155; outline: none; background: rgba(255,255,255,0.05); color: white; font-family: 'Outfit';}
+        .newsletter-form button { background: var(--primary); color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 16px; transition: 0.3s;}
+        .newsletter-form button:hover { background: #0ea5e9; }
+        
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 50px; border-top: 1px solid #1e293b; color: #64748b; font-size: 14px; }
+
+        /* ==== RESPONSIVE ==== */
+        @media (max-width: 992px) {
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .voucher-card { flex-direction: column; }
+            .voucher-divider { width: 100%; height: 2px; background: repeating-linear-gradient(to right, var(--text-gray) 0, var(--text-gray) 8px, transparent 8px, transparent 16px); margin: 0; }
+            .footer-container { grid-template-columns: 1fr; gap: 30px;}
+        }
+        @media (max-width: 768px) {
+            .header-actions .btn { display: none; }
+            .nav-menu { display: none; }
+            .hero-logo { width: 160px; }
+            .hero h1 { font-size: 45px; }
+            .store-hours { font-size: 15px; flex-direction: column; display: flex; gap: 5px;}
+            .category-grid { grid-template-columns: 1fr; }
+            .social-rate-box { padding: 40px 20px; }
+            .social-rate-box h2 { font-size: 28px; }
         }
     </style>
 </head>
-<body>
+<body class="light-mode">
 
-<div class="phone">
-    <div id="promo-banner">
-        <div id="promo-text" class="promo-title"></div>
-        <div id="promo-period" class="promo-date"></div>
-    </div>
+    <header class="header">
+        <div class="logo-text">MÂY.</div>
+        <nav class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#offers">Offers</a>
+            <a href="menu.html">Menu</a>
+            <a href="#about">Our Story</a>
+        </nav>
+        <div class="header-actions">
+            <i class="fa-solid fa-sun dark-toggle" id="darkModeBtn" onclick="toggleTheme()" title="Change Time of Day"></i>
+            
+            <a href="https://maps.google.com" target="_blank" class="btn btn-outline"><i class="fa-solid fa-location-dot"></i> Direction</a>
+            <a href="tel:7247188684" class="btn"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+    </header>
 
-    <img src="images/logo.png" alt="May Tea & Coffee" class="logo-img">
-    <div class="logo">May Tea & Coffee</div>
-    <div class="subtitle">TEA • COFFEE • SMOOTHIES</div>
+    <section class="hero" id="home">
+        <div class="sun-moon"></div>
+        
+        <div class="moving-clouds">
+            <div class="cloud-anim c1"></div>
+            <div class="cloud-anim c2"></div>
+            <div class="cloud-anim c3"></div>
+            <div class="cloud-anim c4"></div>
+            <div class="cloud-anim c5"></div>
+        </div>
 
-    <div class="links">
-        <a href="menu.html">
-            <i class="fa-solid fa-utensils"></i> VIEW MENU
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank">
-            <i class="fab fa-facebook-f"></i> FACEBOOK
-        </a>
-        <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank">
-            <i class="fab fa-instagram"></i> INSTAGRAM
-        </a>
-        <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank">
-            <i class="fab fa-tiktok"></i> TIKTOK
-        </a>
-        <a href="https://maps.google.com/?q=1101+N+Hermitage+Rd,+Hermitage,+PA+16148" target="_blank">
-            <i class="fa-solid fa-location-dot"></i> GET DIRECTIONS
-        </a>
-    </div>
+        <div class="hero-content">
+            <img src="images/logo.png" alt="Mây Tea & Coffee" class="hero-logo">
+            
+            <h1>Float in the Clouds</h1>
+            
+            <div class="store-hours">
+                Mon - Sat: 10:00 AM - 8:00 PM <span style="margin: 0 10px; color: var(--primary);">|</span> Sun: 11:00 AM - 7:00 PM
+            </div>
+        </div>
+    </section>
 
-    <div class="welcome-note">
-        It's our pleasure to welcome you to May Coffee.<br>
-        <b>Click</b> or <b>Call</b> us now—we welcome everyone (except Minh Dang)! ✨
-    </div>
+    <section class="premium-offer-section" id="offers">
+        <div class="voucher-card">
+            <div class="voucher-left">
+                <h3 style="color: var(--text-gray); margin: 0; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 2px;">Welcome Event</h3>
+                <h2>Trial Opening Celebration</h2>
+                <p>Join us to taste the purest ingredients directly sourced from nature. Step into the clouds and treat yourself to our handcrafted signature drinks.</p>
+                <a href="menu.html" class="btn"><i class="fa-solid fa-mug-hot"></i> Explore Menu</a>
+            </div>
+            
+            <div class="voucher-divider"></div>
 
-    <div class="contact">
-        <a href="tel:7247188684"><i class="fa-solid fa-phone"></i></a>
-        <a href="mailto:mayteacoffee98@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-    </div>
+            <div class="voucher-right">
+                <div class="percent">30% OFF</div>
+                <div class="date">Mar 12 - Mar 15</div>
+                <div style="margin-top: 15px; font-size: 12px; opacity: 0.8;">*In-store only</div>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer">
-        📍 1101 N Hermitage Rd, Hermitage, PA 16148
-    </div>
-</div>
+    <section class="section" id="social" style="padding-top: 0;">
+        <div class="social-rate-box">
+            <h2>Spread the Cloud, Get 10% OFF!</h2>
+            <p>Follow our social media and Rate us on Google. Show it at the register to claim your discount on your next drink!</p>
+            
+            <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" target="_blank" style="background: #ea4335;"><i class="fa-brands fa-google"></i></a>
+            </div>
+        </div>
+    </section>
 
-<script>
-    /**
-     * PROMO CONFIGURATION
-     * Edit this object to update your promotion via Git without touching the HTML structure.
-     */
-    const PROMO_SETTINGS = {
-        show: true, // Set to false to hide the banner
-        title: " Soft Opening - 15% OFF",
-        dateRange: "From dd/mm to dd/mm, and except Minh Dang"
-    };
+    <section class="section" id="categories">
+        <h2 class="section-title">Cloud Flavours</h2>
+        <p class="section-subtitle">Find your favorite drink series</p>
+        <div class="category-grid">
+            <a href="menu.html#matcha" class="category-card">
+                <img src="images/matcha-latte.jpg" alt="Matcha Series">
+                <h3>Matcha Series</h3>
+            </a>
+            <a href="menu.html#coffee" class="category-card">
+                <img src="images/coffee-pour.jpg" alt="Coffee Series">
+                <h3>Coffee Series</h3>
+            </a>
+            <a href="menu.html#milktea" class="category-card">
+                <img src="images/strawberry-mousse.jpg" alt="Milk Tea">
+                <h3>Milk Tea & Fruit</h3>
+            </a>
+        </div>
+    </section>
 
-    function loadPromo() {
-        const banner = document.getElementById('promo-banner');
-        if (PROMO_SETTINGS.show) {
-            document.getElementById('promo-text').innerText = PROMO_SETTINGS.title;
-            document.getElementById('promo-period').innerText = PROMO_SETTINGS.dateRange;
-            banner.style.display = 'block';
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">MÂY.</div>
+                <p class="footer-text" style="margin-bottom: 20px;">Experience the cloud-like escape in every sip. Crafting purity in nature.</p>
+                <p class="footer-text"><i class="fa-solid fa-location-dot"></i> 1101 N Hermitage Rd, PA 16148</p>
+                <p class="footer-text"><i class="fa-solid fa-phone"></i> (724) 718-8684</p>
+                <p class="footer-text"><i class="fa-solid fa-envelope"></i> mayteacoffee98@gmail.com</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">Our Story</a>
+                <a href="menu.html">Explore Menu</a>
+                <a href="#offers">Special Offers</a>
+            </div>
+
+            <div>
+                <h4>Join Our Newsletter</h4>
+                <p class="footer-text" style="margin-bottom: 15px; font-size: 14px;">Subscribe for exclusive secret offers and updates.</p>
+                <form class="newsletter-form" action="https://formspree.io/f/your_form_id_here" method="POST">
+                    <input type="email" name="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2024 Mây Tea & Coffee. All rights reserved. | Handcrafted in Pennsylvania.
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('darkModeBtn');
+            
+            // Nếu đang là ban đêm -> Chuyển sang Sáng (Random Ngày hoặc Hoàng hôn)
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                
+                // Tỷ lệ 50/50 ra hoàng hôn
+                if (Math.random() > 0.5) {
+                    body.classList.add('sunset-mode');
+                } else {
+                    body.classList.remove('sunset-mode');
+                }
+                
+                // Đổi icon thành Mặt trời
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } 
+            // Nếu đang là Sáng (Ngày hoặc Hoàng hôn) -> Chuyển sang Đêm
+            else {
+                body.classList.remove('sunset-mode');
+                body.classList.add('dark-mode');
+                
+                // Đổi icon thành Mặt trăng
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
         }
-    }
-
-    loadPromo();
-</script>
-
+    </script>
 </body>
 </html>
