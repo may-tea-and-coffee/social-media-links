@@ -4,74 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | May Tea & Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
+    
+    <header class="top-nav glass-card">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        <div class="logo-text">MAY.</div>
+        <i class="fa-solid fa-sun dark-toggle" id="darkModeBtn" onclick="toggleTheme()" title="Change Time of Day"></i>
+    </header>
+
     <div class="app-container">
-        
         <header class="header">
-            <img src="images/logo.png" alt="May Tea & Coffee" class="logo">
-            <h1>May Tea & Coffee</h1>
-            <p class="tagline">Good Coffee, Good Mood</p>
+            <img src="images/logo.png" alt="May Tea & Coffee" class="logo dynamic-logo">
+            <h1>Our Cloud Menu</h1>
+            <p class="tagline">Experience the purity in every sip</p>
         </header>
 
         <main id="menu-container"></main>
 
         <h3 class="options-title">Customize Your Drink</h3>
         <div class="note-box">
-            <div class="note-card">
+            <div class="note-card glass-card">
                 <div class="note-icon"><i class="fa-solid fa-snowflake"></i></div>
                 <div class="note-text">
                     <strong>Ice Level</strong>
                     <span>Regular • Less • No Ice</span>
                 </div>
             </div>
-            <div class="note-card">
+            <div class="note-card glass-card">
                 <div class="note-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
                 <div class="note-text">
                     <strong>Sugar Level</strong>
                     <span>0% • 30% • 50% • 70% • 100%</span>
                 </div>
             </div>
-            <div class="note-card">
+            <div class="note-card glass-card">
                 <div class="note-icon"><i class="fa-solid fa-leaf"></i></div>
                 <div class="note-text">
-                    <strong>Note</strong>
+                    <strong>Dietary Note</strong>
                     <span>Oat Milk +$0.75</span>
                 </div>
             </div>
-            <div class="note-card">
+            <div class="note-card glass-card">
                 <div class="note-icon"><i class="fa-solid fa-jar"></i></div>
                 <div class="note-text syrup-box">
-                     <strong>Syrup Flavors (+$0.50)</strong>
-                <div class="syrup-grid">
-                    <span>• Caramel</span>
-                    <span>• Peppermint</span>
-                    <span>• Honey</span>
-                    <span>• Vanilla</span>
-                    <span>• Hazelnut</span>
-                    <span>• Sugar-Free Vanilla</span>
-                    <span>• Toffee Nut</span>
-                    <span>• White Chocolate</span>
-                    <span>• Butterscotch</span>
-                    <span>• Strawberry</span>
-                    <span>• Cinnamon</span>
-                    <span>• Raspberry</span>
-                </div>
+                    <strong>Syrup Flavors (+$0.50)</strong>
+                    <div class="syrup-grid">
+                        <span>• Caramel</span>
+                        <span>• Peppermint</span>
+                        <span>• Honey</span>
+                        <span>• Vanilla</span>
+                        <span>• Hazelnut</span>
+                        <span>• Sugar-Free Vanilla</span>
+                        <span>• Toffee Nut</span>
+                        <span>• White Chocolate</span>
+                        <span>• Butterscotch</span>
+                        <span>• Strawberry</span>
+                        <span>• Cinnamon</span>
+                        <span>• Raspberry</span>
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank" class="glass-card"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank" class="glass-card"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank" class="glass-card"><i class="fab fa-tiktok"></i></a>
         </div>
 
         <div class="bottom-spacer"></div>
     </div>
 
-    <nav class="floating-bar">
+    <nav class="floating-bar glass-card">
         <a href="tel:7247188684" class="action-btn btn-call">
             <i class="fa-solid fa-phone"></i> CALL
         </a>
@@ -82,5 +90,33 @@
     </nav>
 
     <script src="menu.js"></script>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('darkModeBtn');
+            const dynamicLogos = document.querySelectorAll('.dynamic-logo');
+            let newLogoSrc = '';
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                if (Math.random() > 0.5) {
+                    body.classList.add('sunset-mode');
+                    newLogoSrc = 'images/website-images/sunset-mode-logo.png';
+                } else {
+                    body.classList.remove('sunset-mode');
+                    newLogoSrc = 'images/logo.png';
+                }
+                icon.className = 'fa-solid fa-sun dark-toggle';
+            } else {
+                body.classList.remove('sunset-mode');
+                body.classList.add('dark-mode');
+                newLogoSrc = 'images/website-images/light-mode-logo.png';
+                icon.className = 'fa-solid fa-moon dark-toggle';
+            }
+
+            dynamicLogos.forEach(img => { img.src = newLogoSrc; });
+        }
+    </script>
 </body>
 </html>
