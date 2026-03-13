@@ -64,7 +64,7 @@ const menu = {
     ]
 };
 
-// Hàm xử lý giá: Bỏ dấu ":", tách Size, $ và Giá thành 3 cột để tự động thẳng hàng
+// Hàm xử lý giá: Tách Size, $ và Giá thành 3 cột
 function formatCardPrice(priceString) {
     let html = '<div class="card-price-stacked">';
 
@@ -73,7 +73,6 @@ function formatCardPrice(priceString) {
         let amount = "";
         let clean = chunk.replace(':', '').trim(); 
         
-        // Dùng Regex tìm phần Size (chữ cái) và phần Giá (số)
         let match = clean.match(/([A-Za-z]*)\s*\$?(\d+\.\d+)/);
         if (match) {
             size = match[1].trim(); 
@@ -111,9 +110,11 @@ for (const category in menu) {
     
     const section = document.createElement("div");
     section.className = "category-section";
+    // Thêm ID cho section để có thể làm anchor link từ Trang Chủ (VD: menu.html#Matcha Series)
+    section.id = category.replace(/\s+/g, '').toLowerCase();
 
     const header = document.createElement("div");
-    header.className = "category-header";
+    header.className = "category-header glass-card";
     header.innerHTML = `
         <h2>${category}</h2>
         <i class="fa-solid fa-chevron-down toggle-icon" style="${isFirst ? 'transform: rotate(180deg)' : ''}"></i>
@@ -128,15 +129,23 @@ for (const category in menu) {
     const cardItems = items.slice(0, 6);
     const listItems = items.slice(6);
 
+    // Render Cards (Giao diện Premium)
     if (cardItems.length > 0) {
         let gridHTML = '<div class="card-grid">';
         cardItems.forEach(drink => {
+            // Xử lý ảnh: Nếu không có ảnh, dùng logo và thêm class để tự đổi màu
+            const isPlaceholder = !drink.image;
             const imgPath = drink.image ? drink.image : "images/logo.png";
+            const imgClass = isPlaceholder ? "dynamic-logo placeholder-img" : "";
+
             gridHTML += `
-                <div class="drink-card">
+                <div class="drink-card glass-card">
                     <div class="card-name">${drink.name}</div>
+                    <div class="card-divider"></div>
                     <div class="card-body">
-                        <img src="${imgPath}" alt="${drink.name}">
+                        <div class="card-img-wrap">
+                            <img src="${imgPath}" alt="${drink.name}" class="${imgClass}">
+                        </div>
                         <div class="card-info">
                             <div class="card-desc">Premium quality blend</div>
                             ${formatCardPrice(drink.price)}
@@ -149,8 +158,9 @@ for (const category in menu) {
         content.innerHTML += gridHTML;
     }
 
+    // Render Simple List
     if (listItems.length > 0) {
-        let listHTML = '<div class="simple-list">';
+        let listHTML = '<div class="simple-list glass-card">';
         listItems.forEach(drink => {
             listHTML += `
                 <div class="simple-item">
@@ -169,6 +179,7 @@ for (const category in menu) {
     section.appendChild(wrapper);
     container.appendChild(section);
 
+    // Logic đóng mở Accordion
     header.addEventListener('click', () => {
         wrapper.classList.toggle('open');
         const isOpen = wrapper.classList.contains('open');
