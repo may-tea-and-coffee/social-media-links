@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mây Tea & Coffee | Your Cloud Escape</title>
+    <title>May Tea & Coffee | Your Cloud Escape</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
@@ -13,45 +13,47 @@
             --primary: #0284c7; 
             --primary-glow: rgba(2, 132, 199, 0.3);
             
-            /* MẶC ĐỊNH: TRỜI SÁNG (DAY MODE) */
+            /* TRỜI SÁNG (DAY MODE) */
             --bg-main: #f8fafc;
             --text-main: #0f172a;
             --text-gray: #64748b;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --sky-top: #38bdf8; /* Xanh da trời tươi */
-            --sky-bottom: #e0f2fe; /* Xanh sữa */
-            --sun-moon-bg: #fde047; /* Mặt trời vàng */
-            --sun-moon-glow: 0 0 60px rgba(253, 224, 71, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --band-bg-1: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 249, 255, 0.95));
+            --band-bg-2: rgba(255, 255, 255, 0.6);
+            --sky-top: #38bdf8; 
+            --sky-bottom: #e0f2fe; 
             --cloud-color: #ffffff;
             --nav-bg: rgba(255, 255, 255, 0.95);
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --glass-border: rgba(255,255,255,0.8);
         }
 
-        /* CHẾ ĐỘ HOÀNG HÔN (SUNSET MODE) */
+        /* HOÀNG HÔN (SUNSET MODE) */
         body.sunset-mode {
-            --sky-top: #ff7e5f; /* Cam hồng hoàng hôn */
+            --sky-top: #ff7e5f; 
             --sky-bottom: #feb47b;
-            --sun-moon-bg: #ffedd5; /* Mặt trời lặn ngả trắng */
-            --sun-moon-glow: 0 0 80px rgba(255, 237, 213, 0.9);
-            --cloud-color: rgba(255, 245, 245, 0.9); /* Mây ám hồng */
-            --primary: #be123c; /* Đổi màu nhấn sang đỏ mận cho hợp hoàng hôn */
+            --cloud-color: rgba(255, 245, 245, 0.9); 
+            --primary: #be123c; 
             --primary-glow: rgba(190, 18, 60, 0.3);
+            --band-bg-1: linear-gradient(135deg, rgba(255, 245, 245, 0.9), rgba(254, 215, 170, 0.9));
+            --band-bg-2: rgba(255, 255, 255, 0.5);
         }
 
-        /* CHẾ ĐỘ ĐÊM (NIGHT MODE) */
+        /* ĐÊM (NIGHT MODE) */
         body.dark-mode {
             --bg-main: #0f172a;
             --text-main: #f8fafc;
             --text-gray: #94a3b8;
-            --card-bg: rgba(30, 41, 59, 0.85);
-            --sky-top: #020617; /* Đêm tối */
+            --card-bg: rgba(30, 41, 59, 0.9);
+            --band-bg-1: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            --band-bg-2: rgba(30, 41, 59, 0.5);
+            --sky-top: #020617; 
             --sky-bottom: #1e293b;
-            --sun-moon-bg: #f8fafc; /* Mặt trăng */
-            --sun-moon-glow: 0 0 40px rgba(255, 255, 255, 0.4);
-            --cloud-color: #334155; /* Mây xám đêm */
+            --cloud-color: #334155; 
             --nav-bg: rgba(15, 23, 42, 0.95);
-            --primary: #38bdf8; /* Đổi màu nhấn sáng hơn để nổi trên nền đen */
+            --primary: #38bdf8; 
             --shadow: 0 10px 30px rgba(0,0,0,0.5);
+            --glass-border: rgba(255,255,255,0.1);
         }
 
         body, html {
@@ -76,7 +78,7 @@
             z-index: 1000; transition: all 0.5s ease;
         }
 
-        .logo-text { font-size: 28px; font-weight: 800; color: var(--primary); letter-spacing: 1px; transition: color 0.5s ease;}
+        .logo-text { font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; transition: color 0.5s ease;}
         
         .nav-menu { display: flex; gap: 30px; }
         .nav-menu a { font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; transition: 0.3s; }
@@ -96,126 +98,164 @@
         .dark-toggle { font-size: 22px; color: var(--text-main); cursor: pointer; margin-right: 15px; transition: 0.3s; }
         .dark-toggle:hover { transform: scale(1.1); color: var(--primary); }
 
-        /* ==== 2. HERO SECTION (BẦU TRỜI & MÂY DÀY ĐẶC) ==== */
+        /* ==== 2. HERO SECTION ==== */
         .hero {
-            position: relative; height: 100vh;
+            position: relative; 
+            min-height: 80vh; 
             background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 0 20px; overflow: hidden;
+            text-align: center; 
+            padding: 120px 20px 80px; /* Thêm padding, BỎ LỀ ÂM CỦA KHỐI DƯỚI */
+            overflow: hidden; 
             transition: background 1s ease;
         }
 
-        /* Mặt trời / Mặt trăng đã được dời ra góc */
-        .sun-moon {
+        .sun-moon-box {
             position: absolute; top: 12%; right: 10%;
-            width: 80px; height: 80px; border-radius: 50%;
-            background: var(--sun-moon-bg); box-shadow: var(--sun-moon-glow);
-            transition: all 1s ease; z-index: 1;
+            width: 80px; height: 80px; transition: all 1s ease; z-index: 1;
         }
-        body.dark-mode .sun-moon { box-shadow: inset -15px -15px 0 0 var(--bg-main), 0 0 30px rgba(255,255,255,0.2); background: transparent; }
+        body.sunset-mode .sun-moon-box { display: none; }
 
-        /* Hệ thống 5 đám mây bay */
+        .sun-moon {
+            width: 100%; height: 100%; border-radius: 50%;
+            background: #fde047; box-shadow: 0 0 60px rgba(253, 224, 71, 0.8);
+            transition: all 1s ease;
+        }
+        body.dark-mode .sun-moon {
+            background: transparent;
+            box-shadow: inset -15px -15px 0 0 #f8fafc, 0 0 30px rgba(255,255,255,0.2); 
+        }
+
         .moving-clouds { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
         .cloud-anim { position: absolute; background: var(--cloud-color); border-radius: 50px; filter: blur(3px); transition: background 1s ease; }
         .cloud-anim::before, .cloud-anim::after { content: ''; position: absolute; background: var(--cloud-color); border-radius: 50%; transition: background 1s ease; }
         
-        .c1 { width: 200px; height: 60px; top: 15%; opacity: 0.8; animation: drift 45s linear infinite; }
-        .c1::before { width: 80px; height: 80px; top: -40px; left: 30px; } .c1::after { width: 100px; height: 100px; top: -50px; right: 30px; }
-        
-        .c2 { width: 150px; height: 50px; top: 35%; opacity: 0.5; transform: scale(0.8); animation: drift 35s linear infinite reverse; }
-        .c2::before { width: 60px; height: 60px; top: -30px; left: 20px; } .c2::after { width: 80px; height: 80px; top: -40px; right: 20px; }
-        
-        .c3 { width: 250px; height: 70px; top: 60%; opacity: 0.7; transform: scale(1.2); animation: drift 60s linear infinite; }
-        .c3::before { width: 100px; height: 100px; top: -50px; left: 40px; } .c3::after { width: 120px; height: 120px; top: -60px; right: 40px; }
-        
-        .c4 { width: 120px; height: 40px; top: 25%; opacity: 0.4; transform: scale(0.6); animation: drift 25s linear infinite reverse; }
-        .c4::before { width: 50px; height: 50px; top: -20px; left: 15px; } .c4::after { width: 60px; height: 60px; top: -30px; right: 15px; }
-        
-        .c5 { width: 180px; height: 55px; top: 75%; opacity: 0.6; transform: scale(0.9); animation: drift 50s linear infinite; }
-        .c5::before { width: 70px; height: 70px; top: -35px; left: 25px; } .c5::after { width: 90px; height: 90px; top: -45px; right: 25px; }
+        .c1 { width: 180px; height: 50px; top: 15%; opacity: 0.8; animation: drift 45s linear infinite; }
+        .c1::before { width: 70px; height: 70px; top: -35px; left: 25px; } .c1::after { width: 90px; height: 90px; top: -45px; right: 25px; }
+        .c2 { width: 130px; height: 40px; top: 35%; opacity: 0.5; transform: scale(0.8); animation: drift 35s linear infinite reverse; }
+        .c2::before { width: 50px; height: 50px; top: -25px; left: 15px; } .c2::after { width: 70px; height: 70px; top: -35px; right: 15px; }
+        .c3 { width: 220px; height: 60px; top: 60%; opacity: 0.7; transform: scale(1.2); animation: drift 60s linear infinite; }
+        .c3::before { width: 90px; height: 90px; top: -45px; left: 35px; } .c3::after { width: 110px; height: 110px; top: -55px; right: 35px; }
+        .c4 { width: 100px; height: 35px; top: 25%; opacity: 0.4; transform: scale(0.6); animation: drift 25s linear infinite reverse; }
+        .c4::before { width: 40px; height: 40px; top: -18px; left: 12px; } .c4::after { width: 50px; height: 50px; top: -25px; right: 12px; }
+        .c5 { width: 160px; height: 50px; top: 75%; opacity: 0.6; transform: scale(0.9); animation: drift 50s linear infinite; }
+        .c5::before { width: 60px; height: 60px; top: -30px; left: 20px; } .c5::after { width: 80px; height: 80px; top: -40px; right: 20px; }
 
         @keyframes drift { from { left: -30%; } to { left: 110%; } }
 
-        /* Nội dung chính giữa Hero */
         .hero-content { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center;}
         
-        /* Logo to, không viền, đổ bóng xịn */
-        .hero-logo { width: 220px; margin-bottom: 20px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)); animation: float 6s ease-in-out infinite; }
-        
-        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 65px; margin: 0 0 10px; color: var(--primary); text-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: color 1s ease;}
-        
-        /* Giờ mở cửa: To, tinh tế, không khung */
-        .store-hours {
-            margin-top: 30px; font-size: 18px; font-weight: 600;
-            color: var(--text-main); text-shadow: 0 2px 5px rgba(255,255,255,0.8);
-            letter-spacing: 0.5px;
+        .hero-logo { 
+            width: 440px; max-width: 90vw; margin-bottom: 20px; 
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15)); 
+            animation: float 6s ease-in-out infinite; transition: all 0.5s ease;
         }
-        body.dark-mode .store-hours { text-shadow: 0 2px 5px rgba(0,0,0,0.8); color: #e2e8f0; }
+        
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 55px; margin: 0 0 25px; color: var(--primary); text-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: color 1s ease;}
+        
+        .store-hours {
+            margin-top: 40px; font-size: 18px; font-weight: 800;
+            color: #0f172a; 
+            letter-spacing: 0.5px;
+            transition: color 0.5s ease;
+        }
+        body.sunset-mode .store-hours, body.dark-mode .store-hours { color: #f8fafc; }
 
         @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0); } }
 
-        /* ==== 3. THIẾT KẾ PREMIUM VOUCHER (TRIAL OPENING) ==== */
-        .premium-offer-section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: -60px auto 0; /* Kéo nhẹ lên đè vào Hero */
-            position: relative; z-index: 20;
+        .placeholder-img {
+            object-fit: contain !important;
+            padding: 20px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .voucher-card {
+        /* ==== 3 & 4. FULL-WIDTH BANDS (DẢI BĂNG TRẢI DÀI TOÀN MÀN HÌNH) ==== */
+        .full-width-section {
+            width: 100%;
+            padding: 60px 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 20;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        /* Dải Trial Opening */
+        .offer-section {
+            background: var(--band-bg-1);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        /* Dải Social Media */
+        .social-section {
+            background: var(--band-bg-2);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .band-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            background: var(--card-bg);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px; overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
         }
-        .voucher-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
 
-        /* Phần trái của vé */
-        .voucher-left { padding: 50px; flex: 1; text-align: left; position: relative; }
-        .voucher-left h2 { font-size: 36px; margin: 0 0 10px; color: var(--text-main); }
-        .voucher-left p { font-size: 16px; color: var(--text-gray); margin-bottom: 25px; line-height: 1.6;}
+        /* Nội dung Trial Opening */
+        .offer-text { flex: 1; text-align: left; }
+        .offer-text h3 { color: var(--text-gray); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin: 0;}
+        .offer-text h2 { font-size: 38px; color: var(--text-main); margin: 5px 0 15px;}
+        .offer-text p { font-size: 16px; color: var(--text-gray); margin-bottom: 25px; line-height: 1.6; max-width: 600px;}
         
-        /* Đường cắt đứt khúc giữa vé */
-        .voucher-divider {
-            width: 2px; background: repeating-linear-gradient(to bottom, var(--text-gray) 0, var(--text-gray) 8px, transparent 8px, transparent 16px);
-            opacity: 0.3; margin: 20px 0; position: relative;
-        }
-
-        /* Phần phải của vé (Nổi bật) */
-        .voucher-right {
+        .offer-discount {
             background: linear-gradient(135deg, var(--primary), #60a5fa);
-            padding: 40px; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; min-width: 220px; text-align: center;
+            padding: 35px 50px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 15px 30px var(--primary-glow);
+            min-width: 250px;
         }
-        .voucher-right .percent { font-size: 55px; font-weight: 800; line-height: 1; margin-bottom: 10px; font-family: 'Outfit', sans-serif;}
-        .voucher-right .date { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px;}
+        .offer-discount .percent { font-size: 55px; font-weight: 800; line-height: 1; margin-bottom: 10px; font-family: 'Outfit', sans-serif;}
+        .offer-discount .date { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: rgba(0,0,0,0.2); padding: 6px 15px; border-radius: 20px;}
 
-        /* ==== 4. SOCIAL & RATE US (10% OFF) ==== */
-        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10;}
-        .social-rate-box {
-            background: var(--card-bg); backdrop-filter: blur(15px);
-            border-radius: 30px; padding: 50px 30px; text-align: center;
-            box-shadow: var(--shadow); border: 1px solid var(--glass-border);
-        }
-        .social-rate-box h2 { font-size: 36px; color: var(--primary); margin-top: 0;}
-        .social-rate-box p { font-size: 18px; margin-bottom: 20px; color: var(--text-main);}
-        .stars { color: #FDB813; font-size: 26px; margin: 15px 0; letter-spacing: 8px; filter: drop-shadow(0 2px 4px rgba(253, 184, 19, 0.4));}
+        /* Nội dung Social Media */
+        .social-text { flex: 1; text-align: left;}
+        .social-text h2 { font-size: 38px; color: var(--primary); margin: 0 0 10px;}
+        .social-text p { font-size: 16px; color: var(--text-gray); margin: 0; max-width: 600px;}
+        .stars { color: #FDB813; font-size: 22px; margin-top: 15px; letter-spacing: 5px; filter: drop-shadow(0 2px 4px rgba(253, 184, 19, 0.4));}
         
-        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 25px; }
+        .social-actions { display: flex; flex-direction: column; align-items: center; gap: 15px; min-width: 250px;}
+        .social-links { display: flex; gap: 15px; }
         .social-links a { 
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 55px; height: 55px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 28px; color: white; transition: 0.3s;
-            background: var(--primary); box-shadow: 0 10px 20px var(--primary-glow);
+            font-size: 24px; color: var(--primary); background: transparent;
+            border: 2px solid var(--primary); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
         }
-        .social-links a:hover { transform: scale(1.15) translateY(-5px); background: var(--text-main); box-shadow: 0 15px 25px rgba(0,0,0,0.2);}
+        .social-links a::after {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+            background: var(--primary); border-radius: 50%; transform: translate(-50%, -50%);
+            transition: all 0.4s ease; z-index: -1;
+        }
+        .social-links a:hover { transform: translateY(-5px); color: white; border-color: var(--primary); box-shadow: 0 10px 20px var(--primary-glow); }
+        .social-links a:hover::after { width: 150%; height: 150%; }
+        .social-links a.social-google { color: #ea4335; border-color: #ea4335; }
+        .social-links a.social-google::after { background: #ea4335; }
+        .social-links a.social-google:hover { border-color: #ea4335; box-shadow: 0 10px 20px rgba(234, 67, 53, 0.2); }
 
-        /* ==== 5. CATEGORIES ==== */
+        /* ==== 5. ABOUT US, CATEGORIES, GALLERY ==== */
+        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 10;}
         .section-title { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 10px; color: var(--text-main);}
         .section-subtitle { text-align: center; color: var(--text-gray); margin-bottom: 50px; }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .about-text h2 { font-size: 32px; margin-top: 0; color: var(--primary); font-family: 'Dancing Script', cursive; }
+        .about-text p { font-size: 16px; line-height: 1.8; color: var(--text-gray); margin-bottom: 20px; }
 
         .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .category-card {
@@ -224,13 +264,24 @@
             border: 1px solid var(--glass-border);
         }
         .category-card:hover { transform: translateY(-10px); }
-        .category-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 15px; }
+        .category-card img { width: 100%; height: 220px; margin-bottom: 15px; } 
         .category-card h3 { font-size: 20px; margin: 0; color: var(--text-main);}
 
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; aspect-ratio: 1 / 1; }
+        .gallery-item img { width: 100%; height: 100%; transition: transform 0.5s; background: var(--card-bg);}
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 132, 199, 0.6); display: flex; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s; color: white; font-size: 30px; pointer-events: none;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
         /* ==== 6. FOOTER ==== */
-        .footer { background: #0f172a; color: white; padding: 70px 20px 20px; margin-top: 50px; border-radius: 40px 40px 0 0; }
+        .footer { background: #0f172a; color: white; padding: 70px 20px 20px; margin-top: 50px; }
         .footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 50px; }
-        .footer-logo { font-size: 28px; font-weight: 800; margin-bottom: 15px; color: var(--primary); font-family: 'Dancing Script', cursive;}
+        .footer-logo { font-size: 28px; font-weight: 800; margin-bottom: 15px; color: var(--primary); font-family: 'Outfit', sans-serif;}
         .footer-text { color: #94a3b8; line-height: 1.8; font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;}
         .footer-text i { color: var(--primary); font-size: 16px; width: 20px; text-align: center;}
         
@@ -247,75 +298,76 @@
 
         /* ==== RESPONSIVE ==== */
         @media (max-width: 992px) {
+            .nav-menu { gap: 15px; }
+            .hero-logo { width: 300px; }
+            .band-container { flex-direction: column; text-align: center; gap: 30px; }
+            .offer-text p, .social-text p { margin: 0 auto 20px; }
+            .offer-discount { width: 100%; box-sizing: border-box; }
             .category-grid { grid-template-columns: repeat(2, 1fr); }
-            .voucher-card { flex-direction: column; }
-            .voucher-divider { width: 100%; height: 2px; background: repeating-linear-gradient(to right, var(--text-gray) 0, var(--text-gray) 8px, transparent 8px, transparent 16px); margin: 0; }
             .footer-container { grid-template-columns: 1fr; gap: 30px;}
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
+            .header { padding: 15px 20px; }
             .header-actions .btn { display: none; }
             .nav-menu { display: none; }
-            .hero-logo { width: 160px; }
-            .hero h1 { font-size: 45px; }
-            .store-hours { font-size: 15px; flex-direction: column; display: flex; gap: 5px;}
+            .hero-logo { width: 280px; }
+            .hero h1 { font-size: 42px; }
+            .store-hours { font-size: 16px; display: flex; flex-direction: column; gap: 5px; }
+            .store-hours span { display: none; } 
             .category-grid { grid-template-columns: 1fr; }
-            .social-rate-box { padding: 40px 20px; }
-            .social-rate-box h2 { font-size: 28px; }
+            .social-text h2 { font-size: 28px; }
+            .full-width-section { padding: 40px 20px; }
         }
     </style>
 </head>
 <body class="light-mode">
 
     <header class="header">
-        <div class="logo-text">MÂY.</div>
+        <div class="logo-text">MAY</div>
         <nav class="nav-menu">
             <a href="#home">Home</a>
             <a href="#offers">Offers</a>
-            <a href="menu.html">Menu</a>
-            <a href="#about">Our Story</a>
+            <a href="#categories">Menu</a>
+            <a href="#about">Story</a>
+            <a href="#gallery">Gallery</a>
         </nav>
         <div class="header-actions">
             <i class="fa-solid fa-sun dark-toggle" id="darkModeBtn" onclick="toggleTheme()" title="Change Time of Day"></i>
-            
             <a href="https://maps.google.com" target="_blank" class="btn btn-outline"><i class="fa-solid fa-location-dot"></i> Direction</a>
             <a href="tel:7247188684" class="btn"><i class="fa-solid fa-phone"></i> Call Now</a>
         </div>
     </header>
 
     <section class="hero" id="home">
-        <div class="sun-moon"></div>
-        
+        <div class="sun-moon-box"><div class="sun-moon"></div></div>
         <div class="moving-clouds">
-            <div class="cloud-anim c1"></div>
-            <div class="cloud-anim c2"></div>
-            <div class="cloud-anim c3"></div>
-            <div class="cloud-anim c4"></div>
-            <div class="cloud-anim c5"></div>
+            <div class="cloud-anim c1"></div><div class="cloud-anim c2"></div><div class="cloud-anim c3"></div><div class="cloud-anim c4"></div><div class="cloud-anim c5"></div>
         </div>
 
         <div class="hero-content">
-            <img src="images/logo.png" alt="Mây Tea & Coffee" class="hero-logo">
-            
+            <img src="images/logo.png" alt="May Tea & Coffee" id="hero-logo" class="hero-logo dynamic-logo">
             <h1>Float in the Clouds</h1>
-            
+            <a href="menu.html" class="btn" style="font-size: 18px; padding: 15px 40px; box-shadow: 0 10px 20px var(--primary-glow); margin-bottom: 10px;"><i class="fa-solid fa-mug-hot"></i> Explore Full Menu</a>
+            <br>
             <div class="store-hours">
+                <i class="fa-regular fa-clock" style="color: var(--primary);"></i> 
                 Mon - Sat: 10:00 AM - 8:00 PM <span style="margin: 0 10px; color: var(--primary);">|</span> Sun: 11:00 AM - 7:00 PM
             </div>
         </div>
     </section>
 
-    <section class="premium-offer-section" id="offers">
-        <div class="voucher-card">
-            <div class="voucher-left">
-                <h3 style="color: var(--text-gray); margin: 0; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 2px;">Welcome Event</h3>
+    <section class="full-width-section offer-section" id="offers">
+        <div class="band-container">
+            <div class="offer-text">
+                <h3>Welcome Event</h3>
                 <h2>Trial Opening Celebration</h2>
                 <p>Join us to taste the purest ingredients directly sourced from nature. Step into the clouds and treat yourself to our handcrafted signature drinks.</p>
-                <a href="menu.html" class="btn"><i class="fa-solid fa-mug-hot"></i> Explore Menu</a>
+                <a href="menu.html" class="btn"><i class="fa-solid fa-cup-togo"></i> Order Now</a>
             </div>
             
-            <div class="voucher-divider"></div>
-
-            <div class="voucher-right">
+            <div class="offer-discount">
                 <div class="percent">30% OFF</div>
                 <div class="date">Mar 12 - Mar 15</div>
                 <div style="margin-top: 15px; font-size: 12px; opacity: 0.8;">*In-store only</div>
@@ -323,20 +375,38 @@
         </div>
     </section>
 
-    <section class="section" id="social" style="padding-top: 0;">
-        <div class="social-rate-box">
-            <h2>Spread the Cloud, Get 10% OFF!</h2>
-            <p>Follow our social media and Rate us on Google. Show it at the register to claim your discount on your next drink!</p>
-            
-            <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    <section class="full-width-section social-section" id="social">
+        <div class="band-container">
+            <div class="social-text">
+                <h2>Spread the Cloud, Get 10% OFF!</h2>
+                <p>Follow our social media and Rate us on Google. Show it at the register to claim your discount on your next drink!</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
             </div>
             
-            <div class="social-links">
-                <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" target="_blank" style="background: #ea4335;"><i class="fa-brands fa-google"></i></a>
+            <div class="social-actions">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mayteacoffee.pa" target="_blank" title="Follow us on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@may.tea.coffee0" target="_blank" title="Follow us on TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61587109587784" target="_blank" title="Follow us on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-google" title="Rate us on Google"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <span style="font-size: 14px; font-weight: 600; color: var(--text-gray); margin-top: 10px;">Connect with us</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="about">
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="images/logo.png" alt="May Coffee Logo" class="placeholder-img dynamic-logo" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); width: 100%;">
+            </div>
+            <div class="about-text">
+                <h2>The Story of May Coffee</h2>
+                <p>Welcome to May Tea & Coffee. Our mission is simple: to bring you back to nature through the purest ingredients. We meticulously source our tea leaves and coffee beans directly from responsible farms to ensure every cup delivers a cloud-like smoothness.</p>
+                <p>We are a dedicated international chain of Matcha desserts, rooting from traditional Japanese tea culture. By upholding standard craftsmanship and modern dedication, establish Matcha culture as our core brand. Experience the purity of clouds in every sip.</p>
+                <a href="menu.html" style="color: var(--primary); font-weight: 700; border-bottom: 2px solid var(--primary); padding-bottom: 2px;">Explore our cloud flavors <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -346,25 +416,49 @@
         <p class="section-subtitle">Find your favorite drink series</p>
         <div class="category-grid">
             <a href="menu.html#matcha" class="category-card">
-                <img src="images/matcha-latte.jpg" alt="Matcha Series">
+                <img src="images/logo.png" alt="Matcha Series" class="placeholder-img dynamic-logo">
                 <h3>Matcha Series</h3>
             </a>
             <a href="menu.html#coffee" class="category-card">
-                <img src="images/coffee-pour.jpg" alt="Coffee Series">
+                <img src="images/logo.png" alt="Coffee Series" class="placeholder-img dynamic-logo">
                 <h3>Coffee Series</h3>
             </a>
             <a href="menu.html#milktea" class="category-card">
-                <img src="images/strawberry-mousse.jpg" alt="Milk Tea">
+                <img src="images/logo.png" alt="Milk Tea" class="placeholder-img dynamic-logo">
                 <h3>Milk Tea & Fruit</h3>
             </a>
+        </div>
+    </section>
+
+    <section class="section" id="gallery">
+        <h2 class="section-title">Our Gallery</h2>
+        <p class="section-subtitle">Follow us @mayteacoffee.pa</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/logo.png" alt="Gallery" class="placeholder-img dynamic-logo">
+                <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/logo.png" alt="Gallery" class="placeholder-img dynamic-logo">
+                <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/logo.png" alt="Gallery" class="placeholder-img dynamic-logo">
+                <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/logo.png" alt="Gallery" class="placeholder-img dynamic-logo">
+                <div class="gallery-overlay"><i class="fa-brands fa-instagram"></i></div>
+            </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="footer-container">
             <div>
-                <div class="footer-logo">MÂY.</div>
-                <p class="footer-text" style="margin-bottom: 20px;">Experience the cloud-like escape in every sip. Crafting purity in nature.</p>
+                <div class="footer-logo">May Tea & Coffee</div>
+                <p class="footer-text" style="margin-bottom: 20px;">Experience the cloud-like escape in every sip. Crafting purity in nature since 2024.</p>
                 <p class="footer-text"><i class="fa-solid fa-location-dot"></i> 1101 N Hermitage Rd, PA 16148</p>
                 <p class="footer-text"><i class="fa-solid fa-phone"></i> (724) 718-8684</p>
                 <p class="footer-text"><i class="fa-solid fa-envelope"></i> mayteacoffee98@gmail.com</p>
@@ -373,14 +467,15 @@
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <a href="#home">Home</a>
-                <a href="#about">Our Story</a>
-                <a href="menu.html">Explore Menu</a>
                 <a href="#offers">Special Offers</a>
+                <a href="menu.html">Explore Menu</a>
+                <a href="#about">Our Story</a>
+                <a href="#gallery">Gallery feed</a>
             </div>
 
             <div>
                 <h4>Join Our Newsletter</h4>
-                <p class="footer-text" style="margin-bottom: 15px; font-size: 14px;">Subscribe for exclusive secret offers and updates.</p>
+                <p class="footer-text" style="margin-bottom: 15px; font-size: 14px;">Subscribe for exclusive secret cloud offers and updates.</p>
                 <form class="newsletter-form" action="https://formspree.io/f/your_form_id_here" method="POST">
                     <input type="email" name="email" placeholder="Your email address" required>
                     <button type="submit">Subscribe</button>
@@ -389,7 +484,7 @@
         </div>
 
         <div class="footer-bottom">
-            © 2024 Mây Tea & Coffee. All rights reserved. | Handcrafted in Pennsylvania.
+            © 2024 May Tea & Coffee. All rights reserved. | Handcrafted in Pennsylvania.
         </div>
     </footer>
 
@@ -398,30 +493,35 @@
             const body = document.body;
             const icon = document.getElementById('darkModeBtn');
             
-            // Nếu đang là ban đêm -> Chuyển sang Sáng (Random Ngày hoặc Hoàng hôn)
+            // Tìm TẤT CẢ các ảnh có class dynamic-logo
+            const dynamicLogos = document.querySelectorAll('.dynamic-logo');
+            let newLogoSrc = '';
+
             if (body.classList.contains('dark-mode')) {
                 body.classList.remove('dark-mode');
                 
-                // Tỷ lệ 50/50 ra hoàng hôn
                 if (Math.random() > 0.5) {
                     body.classList.add('sunset-mode');
+                    newLogoSrc = 'images/website-images/sunset-mode-logo.png';
                 } else {
                     body.classList.remove('sunset-mode');
+                    newLogoSrc = 'images/logo.png';
                 }
                 
-                // Đổi icon thành Mặt trời
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                icon.className = 'fa-solid fa-sun dark-toggle';
             } 
-            // Nếu đang là Sáng (Ngày hoặc Hoàng hôn) -> Chuyển sang Đêm
             else {
                 body.classList.remove('sunset-mode');
                 body.classList.add('dark-mode');
                 
-                // Đổi icon thành Mặt trăng
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                newLogoSrc = 'images/website-images/light-mode-logo.png';
+                icon.className = 'fa-solid fa-moon dark-toggle';
             }
+
+            // Thay đổi src cho tất cả logo có class dynamic-logo
+            dynamicLogos.forEach(img => {
+                img.src = newLogoSrc;
+            });
         }
     </script>
 </body>
